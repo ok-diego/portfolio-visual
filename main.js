@@ -23,3 +23,9 @@ const cursor = new Cursor();
 if (window.innerWidth > 1024) {
   cursor.init();
 }
+// Optional: Handle window resize to reinitialize the cursor
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 1024) {
+    cursor.init();
+  }
+});
