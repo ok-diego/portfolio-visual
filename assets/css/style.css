@@ -9,12 +9,13 @@ html {
   --gray: #c0c0c0;
   --black: #000000;
   --color: #c90000;
-  --fs-normal: 1.6rem;
   --color-parag: var(--gray);
   --color-title: var(--black);
-  --fs-small: 1.4rem;
-  --fs-title: 2rem;
+  --fs-normal: 1.4rem;
+  --fs-small: 1.2rem;
+  --fs-title: 1.8rem;
   --gap: 1rem;
+  --full-size: 100%;
   font-family: "Arimo", sans-serif;
   font-size: calc(100vw / 375 * 10);
   font-weight: 400;
@@ -26,9 +27,10 @@ html {
   html,
   * {
     font-size: calc(100vw / 900 * 10);
-    --fs-small: 1.8rem;
-    --fs-normal: 2rem;
-    --fs-title: 3rem;
+    --fs-normal: 1.6rem;
+    --fs-small: 1.4rem;
+    --fs-title: 2.8rem;
+    --full-size: 100%;
   }
 }
 
@@ -39,9 +41,10 @@ html {
     font-size: calc(100vw / 1920 * 10);
     --bd-radius: 1rem;
     --fs-normal: 1.8rem;
-    --fs-small: 2rem;
-    --fs-title: 3.6rem;
+    --fs-small: 1.6rem;
+    --fs-title: 3.4rem;
     --gap: 4rem;
+    --full-size: 100%;
   }
 }
 
@@ -93,6 +96,7 @@ a {
   align-items: center;
   justify-content: center;
 }
+
 picture,
 img,
 video {
@@ -101,11 +105,13 @@ video {
   height: 100%;
   object-fit: cover;
 }
+
 button,
 .main-btn {
   background: transparent;
   border: none;
 }
+
 .e-holder {
   /* we use this to set 100vw width AND make an equal gap on both sides */
   /* you can set height in each child inside this div */
@@ -245,6 +251,7 @@ svg.arrow-main {
 .marquee h1 svg path {
   fill: var(--black);
 }
+
 @media only screen and (min-width: 1025px) {
   .marquee {
     gap: var(--gap);
@@ -278,6 +285,7 @@ svg.arrow-main {
   will-change: transform;
   gap: var(--gap);
 }
+
 @media only screen and (min-width: 1025px) {
   .mq {
     --time: 15s;
@@ -342,9 +350,11 @@ ul.hero__media__holder {
   opacity: 0;
   transition: all 0s;
 }
+
 .hero__media li.is-active {
   opacity: 1;
 }
+
 .hero__media li picture {
   /* this adds a nice blend to the opacity of the image */
   background: #000;
@@ -395,6 +405,7 @@ ul.hero__media__holder {
     width: 100%;
   }
 }
+
 @media only screen and (min-width: 1025px) {
   .hero__marquee h1 span {
     font-size: 18rem;
@@ -562,6 +573,7 @@ h3.expertises__title {
   font-size: var(--fs-title);
   margin: 0 0 1.3rem 0;
 }
+
 /* mobile tablet version */
 @media screen and (min-width: 480px) and (max-width: 1024px) {
   .expertises__info {
@@ -662,6 +674,7 @@ p.projects__each__text {
   font-size: var(--fs-normal);
   width: 85%;
 }
+
 @media screen and (min-width: 480px) and (max-width: 1024px) {
   li.projects__each {
     width: 100%;
@@ -673,6 +686,7 @@ p.projects__each__text {
     font-size: 1.8rem;
   }
 }
+
 @media only screen and (min-width: 1025px) {
   li.projects__each {
     width: 100%;
@@ -776,6 +790,8 @@ footer.footer {
   display: flex;
   width: 12.4rem;
   margin: 0 0 4rem 0;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .footer__info__svgs-socials li {
@@ -1062,28 +1078,35 @@ header.header {
 .header__mobile {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   height: 100%;
 }
 
 .header__logo {
   display: flex;
   width: 9.6rem;
-  margin: 0 auto;
-  /* border: 1px dashed blue; */
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.header__logo .diego,
+.header__logo .live,
+.footer__info__logo {
+  font-size: var(--fs-small); /* Default font size for mobile */
+  font-weight: 600;
+}
+
+.header__logo svg {
+  width: 1.5rem; /* Default logo size for mobile */
+  height: 1.5rem;
 }
 
 .header__logo svg text {
   width: 100%;
   height: 100%;
   font-size: 14px;
-}
-
-.header__logo .diego,
-.header__logo .live,
-.footer__info__logo {
-  font-size: 17px;
-  font-weight: 600;
 }
 
 .header__switch > * {
@@ -1118,10 +1141,18 @@ header.header {
   }
 
   .header__logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 15rem;
+  }
+
+  .header__logo .diego,
+  .header__logo .live,
+  .footer__info__logo {
+    font-size: var(--fs-normal); /* Increased font size for tablets */
+  }
+
+  .header__logo svg {
+    width: 2rem; /* Increased logo size for tablets */
+    height: 2rem;
   }
 
   .header__switch svg {
@@ -1133,14 +1164,26 @@ header.header {
   header.header {
     height: 5rem;
   }
+
   .header__mobile__hamb,
   .header__switch {
     width: 3rem;
     height: 3rem;
   }
 
+  .header__logo .diego,
+  .header__logo .live,
+  .footer__info__logo {
+    font-size: var(--fs-small); /* Increased font size for tablets */
+  }
+
   .header__logo {
     width: 12rem;
+  }
+
+  .header__logo svg {
+    width: 2rem; /* Increased logo size for tablets */
+    height: 2rem;
   }
 
   .header__switch svg {
@@ -1170,11 +1213,15 @@ header.header {
     width: 11.483rem;
   }
 
+  .header__logo .diego,
+  .header__logo .live,
+  .footer__info__logo {
+    font-size: var(--fs-small); /* Increased font size for desktops */
+  }
+
   .header__logo svg {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* border: 1px dashed blue; */
+    width: 2.5rem; /* Increased logo size for desktops */
+    height: 2.5rem;
   }
 
   .header__logo svg text {
