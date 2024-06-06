@@ -44,12 +44,36 @@ export default class Hero {
       that.hero.$each_imgs[0].classList.add("is-active");
     }
 
+    // this.hero.$btn.forEach((btn) => {
+    //   btn.addEventListener("mouseenter", () => {
+    //     changeImages();
+    //   });
+    //   btn.addEventListener("mouseleave", () => {
+    //     stopImages();
+    //   });
+    // });
+
+    // Add click event listener to run the functions on both hover and click events
+    let clickCounter = 0;
+
     this.hero.$btn.forEach((btn) => {
+      // Run functions on mouseenter and mouseleave
       btn.addEventListener("mouseenter", () => {
         changeImages();
       });
       btn.addEventListener("mouseleave", () => {
         stopImages();
+      });
+
+      // Run functions on click
+      btn.addEventListener("click", () => {
+        if (clickCounter === 0) {
+          changeImages();
+          clickCounter++;
+        } else {
+          stopImages();
+          clickCounter = 0; // Reset the counter
+        }
       });
     });
   }
