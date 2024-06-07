@@ -152,6 +152,19 @@ p {
 /* _________________________ components _________________________  */
 /* _________________________ components _________________________  */
 /* _________________________ components _________________________  */
+.preloader {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .main-btn {
   background: rgba(255, 255, 255, 0.2);
   border-radius: var(--bd-radius);
@@ -986,16 +999,16 @@ span.author {
 /* _________________________ welcome _________________________  */
 /* _________________________ welcome _________________________  */
 .welcome {
-  align-items: center;
-  background: var(--black);
   display: flex;
-  height: 100vh;
   justify-content: center;
-  left: 0;
-  position: fixed;
-  top: 0;
-  transition: transform 1.2s cubic-bezier(0.71, -0.01, 0.12, 1);
+  align-items: center;
   width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: var(--black);
+  transition: transform 1.2s cubic-bezier(0.71, -0.01, 0.12, 1);
   will-change: transform;
   z-index: 10;
   /* display: none; */

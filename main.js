@@ -10,8 +10,10 @@ import MenuFS from "./assets/js/menu-fs";
 import Hero from "./assets/js/hero";
 import Intro from "./assets/js/intro";
 import Header from "./assets/js/header";
+import Preloader from "./assets/js/preloader";
 
 // instance our classes
+const preloader = new Preloader();
 const header = new Header();
 // const cms = new CMS();
 const intro = new Intro();
@@ -29,3 +31,4 @@ window.addEventListener("resize", () => {
     cursor.init();
   }
 });
+preloader.init();
