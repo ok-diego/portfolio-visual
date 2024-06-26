@@ -7,6 +7,8 @@ export default class Cursor {
     this.$html = document.querySelector("html");
     this.cursor = {
       $el: document.querySelector("[data-cursor]"),
+      $each_trg: document.querySelectorAll(".trg-mouse"),
+      $text: document.querySelector(".cursor__change"),
     };
 
     if (this.cursor.$el) {
@@ -25,6 +27,20 @@ export default class Cursor {
 
       // this.cursor.$el.style.left = `${this.posX}px`;
       // this.cursor.$el.style.top = `${this.posY}px`;
+
+      this.cursor.$each_trg.forEach((el) => {
+        el.addEventListener("mouseenter", () => {
+          const text_cursor = el.getAttribute("data-cursor");
+          this.cursor.$el.classList.add("is-mouse");
+          if (el.getAttribute("data-cursor")) {
+            this.cursor.$text.innerHTML = text_cursor;
+          }
+        });
+        el.addEventListener("mouseleave", () => {
+          this.cursor.$el.classList.remove("is-mouse");
+          this.cursor.$text.innerHTML = `LIVE`;
+        });
+      });
 
       this.cursor.$el.animate(
         {
