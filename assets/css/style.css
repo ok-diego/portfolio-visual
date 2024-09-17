@@ -405,7 +405,7 @@ ul.hero__media__holder {
   display: inline-flex;
   width: 100vw;
   overflow: hidden;
-  display: none;
+  /* display: none; */
 }
 
 .hero__marquee h1 {
