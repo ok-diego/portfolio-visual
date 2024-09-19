@@ -341,7 +341,7 @@ svg.arrow-main {
 }
 
 .hero__marquee__travel.mq ul {
-  --time: 30s;
+  --time: 40s;
   list-style: none;
   display: flex;
   justify-content: space-between;
@@ -364,7 +364,7 @@ svg.arrow-main {
 
 @media only screen and (min-width: 1025px) {
   .mq {
-    --time: 30s;
+    --time: 40s;
     font-size: 1.8rem;
     padding: 1rem 0;
   }
