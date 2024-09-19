@@ -217,9 +217,11 @@ svg.arrow-main {
 .main-btn {
   transition: background 0.225s ease-in-out;
 }
+
 .main-btn:hover {
   background: rgba(255, 255, 255);
 }
+
 .main-btn:hover .main-btn__span {
   color: #000;
 }
@@ -256,7 +258,8 @@ svg.arrow-main {
   }
 }
 
-.marquee {
+/* _________________________ marquee _________________________  */
+/* .marquee {
   display: inline-flex;
   padding: 3rem 0;
   width: 100vw;
@@ -284,11 +287,18 @@ svg.arrow-main {
   fill: var(--black);
 }
 
-@media only screen and (min-width: 1025px) {
+.marquee {
+  --time: 15s;
+  animation: marquee var(--time) infinite linear;
+} */
+
+
+/* @media only screen and (min-width: 1025px) {
   .marquee {
     gap: var(--gap);
     padding: 1rem 0;
   }
+
   .marquee h1 span {
     font-size: 11.585rem;
   }
@@ -300,28 +310,61 @@ svg.arrow-main {
   .marquee h1 {
     gap: var(--gap);
   }
-}
+} */
 
-.marquee {
+/* .marquee {
   overflow: hidden;
   width: 100vw;
-}
+} */
 
-.mq {
-  --time: 6s;
+/* .mq {
+  --time: 30s;
   animation: marquee var(--time) infinite linear;
   color: 2s;
   display: inline-flex;
+  flex-shrink: 0;
+  min-width: 100%;
   font-size: 1.6rem;
   padding: 0.6rem 0;
   white-space: nowrap;
   will-change: transform;
   gap: var(--gap);
+} */
+
+.hero__marquee__travel {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  white-space: nowrap;
+  will-change: transform;
+  gap: var(--gap);
+}
+
+.hero__marquee__travel.mq ul {
+  --time: 30s;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+  min-width: 100%;
+  font-size: 1.6rem;
+  padding: 0.6rem 0;
+  gap: var(--gap);
+  animation: marquee var(--time) infinite linear;
+}
+
+.hero__marquee__travel.mq:hover ul {
+  animation-play-state: paused;
+}
+
+.blue {
+  background-color: lightskyblue;
 }
 
 @media only screen and (min-width: 1025px) {
   .mq {
-    --time: 15s;
+    --time: 30s;
     font-size: 1.8rem;
     padding: 1rem 0;
   }
@@ -332,13 +375,14 @@ svg.arrow-main {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-25%);
+    /* transform: translateX(-100%); */
+    transform: translateX(calc(-100% - var(--gap)));
   }
 }
 
-.mq-anima {
-  animation: marquee var(--time) infinite linear;
-}
+/* .mq-anima {
+  animation: marquee var(--time) linear infinite;
+} */
 
 .hero {
   width: 100vw;
@@ -348,6 +392,7 @@ svg.arrow-main {
   transition: transform 1.2s cubic-bezier(0.71, -0.01, 0.12, 1);
   will-change: transform;
 }
+
 .not-ready .hero {
   transform: translateY(50%);
 }
@@ -461,6 +506,7 @@ ul.hero__media__holder {
   height: 60vh;
   position: relative;
 }
+
 .about__media__holder li {
   width: 100%;
   height: 100%;
@@ -469,9 +515,11 @@ ul.hero__media__holder {
   top: 0;
   transition: all 0s;
 }
+
 .about__media__holder picture {
   background: #000;
 }
+
 .photo-dark {
   opacity: 0;
 }
@@ -479,6 +527,7 @@ ul.hero__media__holder {
 .dark-mode .photo-dark {
   opacity: 1;
 }
+
 .about__media__holder li,
 .about__media__holder picture {
   height: 100%;
@@ -560,6 +609,7 @@ h1.about__h2 {
   height: 65vh;
   width: 100%;
 }
+
 @media only screen and (min-width: 1025px) {
   .display-imgs__holder {
     flex-direction: row;
@@ -752,11 +802,13 @@ p.projects__each__text {
 .hover-img {
   background: #000;
 }
+
 .hover-img img {
   transition: transform 1.6s cubic-bezier(0.07, 0.44, 0.15, 0.99),
     opacity 1.6s cubic-bezier(0.07, 0.44, 0.15, 0.99);
   transform: scale(1);
 }
+
 .hover-img:hover img {
   transform: scale(1.1);
   opacity: 0.75;
@@ -1063,9 +1115,11 @@ li.welcome__span {
   opacity: 0; /* will change with interaction */
   transition: opacity 0.2s ease-in-out;
 }
+
 li.welcome__span.is-active {
   opacity: 1;
 }
+
 span.welcome__text {
   color: var(--white);
   white-space: nowrap;
@@ -1642,6 +1696,7 @@ a.modal__link {
     margin-top: 3rem;
   }
 }
+
 @media only screen and (min-width: 1025px) {
   .modal__content {
     width: 146rem;
@@ -1652,9 +1707,11 @@ a.modal__link {
     right: 2rem;
   }
 }
+
 .is-modal {
   overflow-y: hidden;
 }
+
 .is-modal .modal {
   clip-path: inset(0% round 0rem);
   opacity: 1;

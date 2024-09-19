@@ -8,7 +8,7 @@ export default class Hero {
   hero() {
     this.hero = {
       $btn: document.querySelectorAll(".hero .main-btn"),
-      $each_imgs: document.querySelectorAll(".hero li"),
+      $each_imgs: document.querySelectorAll(".hero__media li"),
     };
     let that = this;
     const length_images = this.hero.$each_imgs.length;
